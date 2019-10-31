@@ -5,5 +5,6 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 @JsonAutoDetect
 public class TestResult {
 
-    private 
+    private String testName;
+    private String
 }
