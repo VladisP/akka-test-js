@@ -2,6 +2,7 @@ package lab4.actors;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
+import lab4.messages.GetResultMessage;
 import lab4.messages.TestResultMessage;
 
 import java.util.ArrayList;
@@ -21,7 +22,9 @@ public class StoreActor extends AbstractActor {
                     store.get(msg.getPackageId()).add(msg);
                     System.out.println(msg.getTest().getTestName() + " записан в хранилище!");
                 })
-                .match()
+                .match(GetResultMessage.class, msg -> {
+                    
+                })
                 .build();
     }
 }
