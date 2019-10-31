@@ -8,6 +8,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.AllDirectives;
+import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -23,8 +24,11 @@ public class Launcher extends AllDirectives {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         Launcher instance = new Launcher();
 
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =;
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+                instance.createRoute();
     }
 
-    crero
+    private Route createRoute() {
+        return null;
+    }
 }
