@@ -15,7 +15,7 @@ public class TestPerformerActor extends AbstractActor {
                 .match(TestMessage.class, msg -> {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(msg.getJsScript());
-                    Invocable 
+                    Invocable invocable 
 
                     for (Test test : msg.getTests()) {
                         testRouter.tell(new TestMessage(
