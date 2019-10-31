@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
-    private Map<String, TestResultMessage> 
+    private Map<String, TestResultMessage> store = 
 
     @Override
     public Receive createReceive() {
