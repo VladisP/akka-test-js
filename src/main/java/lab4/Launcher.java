@@ -60,7 +60,8 @@ public class Launcher extends AllDirectives {
                 ),
                 path("result", () ->
                         get(() ->
-                            parameter("")
+                            parameter("packageId", packageId ->
+                                    parameter())
                         )
                 )
         );
