@@ -1,10 +1,12 @@
-package lab4;
+package lab4.actors;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
+import lab4.Test;
+import lab4.TestMessage;
 
 public class RootActor extends AbstractActor {
 
