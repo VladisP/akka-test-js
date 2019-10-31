@@ -35,7 +35,7 @@ public class RootActor extends AbstractActor {
                     }
                 })
                 .match(GetResultMessage.class, msg -> {
-                    storeActor.tell(msg, self());
+                    storeActor.tell(msg, sender());
                     System.out.println("Запрошены результаты тестов для packageId=" + msg.getPackageId());
                 })
                 .build();
