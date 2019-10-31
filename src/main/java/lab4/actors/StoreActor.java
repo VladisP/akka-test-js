@@ -7,10 +7,7 @@ import lab4.messages.ResponseMessage;
 import lab4.messages.TestResult;
 import lab4.messages.TestResultMessage;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class StoreActor extends AbstractActor {
 
@@ -26,6 +23,7 @@ public class StoreActor extends AbstractActor {
                 })
                 .match(GetResultMessage.class, msg -> {
                     List<TestResultMessage> testResultMessages = store.get(msg.getPackageId());
+                    Collections.sort(testResultMessages);
                     ResponseMessage response = new ResponseMessage(msg.getPackageId(), true, testResultMessages.size());
 
                     for (int i = 0; i < testResultMessages.size(); i++) {
