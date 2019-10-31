@@ -20,9 +20,10 @@ public class Launcher extends AllDirectives {
 
     private static final String ACTOR_SYSTEM_NAME = "test-js";
     private static final String HOST_NAME = "localhost";
+    private static final String START_MESSAGE = "Server online at http://localhost:8080/\nPress RETURN to stop...";
     private static final int PORT = 8080;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
         ActorRef rootActor = system.actorOf(Props.create(RootActor.class));
 
@@ -38,7 +39,7 @@ public class Launcher extends AllDirectives {
                 , materializer
         );
 
-        System.out.println("\"Server online at http://localhost:8080/\\nPress RETURN to stop...\"");
+        System.out.println(START_MESSAGE);
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
