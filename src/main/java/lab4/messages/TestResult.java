@@ -1,6 +1,7 @@
 package lab4.messages;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
@@ -8,10 +9,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({"testName", "successful", "result", "expectedResult", "params"})
 public class TestResult {
 
-    private String testName;
+    @JsonIgnore
+    private String packageId;
     @JsonProperty("successful")
     private boolean isSuccessful;
     private String result;
+    private String testName;
     private String expectedResult;
     private Object[] params;
 
