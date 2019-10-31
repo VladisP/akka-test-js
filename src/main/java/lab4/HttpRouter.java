@@ -7,8 +7,7 @@ import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
 import lab4.messages.GetResultMessage;
 import lab4.messages.TestMessage;
-
-import java.util.concurrent.Future;
+import scala.concurrent.Future;
 
 public class HttpRouter extends AllDirectives {
 
