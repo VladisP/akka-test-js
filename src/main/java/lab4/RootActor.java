@@ -30,5 +30,6 @@ public class RootActor extends AbstractActor {
                         );
                     }
                 })
+                .build();
     }
 }
