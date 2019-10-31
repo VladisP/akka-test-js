@@ -15,7 +15,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <addClass
+                            <addClasspath
                         </manifest>
                     </archive>
                 </configuration>
