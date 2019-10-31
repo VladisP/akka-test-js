@@ -53,15 +53,18 @@ public class Launcher extends AllDirectives {
                 path("test", () ->
                         post(() ->
                                 entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                    rootActor.tell(msg, ActorRef.noSender());
+                                    //rootActor.tell(msg, ActorRef.noSender());
                                     return complete(TEST_STARTED_MESSAGE);
                                 })
                         )
                 ),
                 path("result", () ->
                         get(() ->
-                            parameter("packageId", packageId ->
-                                    parameter())
+                                parameter("key", packageId ->
+                                        parameter("value", value -> {
+                                            return complete("coming soon...");
+                                        })
+                                )
                         )
                 )
         );
