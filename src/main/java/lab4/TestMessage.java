@@ -8,5 +8,5 @@ public class TestMessage {
     private int packageId;
     private String jsScript;
     private String functionName;
-    private 
+    private
 }
