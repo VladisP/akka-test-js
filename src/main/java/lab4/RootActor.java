@@ -19,6 +19,6 @@ public class RootActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match()
+                .match(TestMessage.class)
     }
 }
