@@ -13,10 +13,17 @@ public class ResponseMessage {
     public ResponseMessage() {
     }
 
-    public ResponseMessage(String packageId, boolean isSuccessful, int testResultsCount) {
+    public ResponseMessage(String packageId, TestResult[] testResults) {
         this.packageId = packageId;
-        this.isSuccessful = isSuccessful;
-        this.testResults = new TestResult[testResultsCount];
+        this.isSuccessful = true;
+        this.testResults = testResults;
+
+        for (TestResult result : this.testResults) {
+            if (!result.isSuccessful()) {
+                this.isSuccessful = false;
+                break;
+            }
+        }
     }
 
     public String getPackageId() {

@@ -9,7 +9,7 @@ import lab4.messages.GetResultsMessage;
 import lab4.messages.TestMessage;
 import scala.concurrent.Future;
 
-public class HttpRouter extends AllDirectives {
+class HttpRouter extends AllDirectives {
 
     private static final String TEST_STARTED_MESSAGE = "Test started!";
     private static final String TEST_PATH = "test";
@@ -17,10 +17,10 @@ public class HttpRouter extends AllDirectives {
     private static final String PARAMETER_PACKAGE_ID = "packageId";
     private static final int TIMEOUT = 5000;
 
-    public HttpRouter() {
+    HttpRouter() {
     }
 
-    public Route createRoute(ActorRef rootActor) {
+    Route createRoute(ActorRef rootActor) {
         return route(
                 path(TEST_PATH, () ->
                         post(() ->
