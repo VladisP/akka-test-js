@@ -1,4 +1,4 @@
-package lab4;
+package lab4.messages;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 

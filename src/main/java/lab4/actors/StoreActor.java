@@ -2,7 +2,7 @@ package lab4.actors;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
-import lab4.TestResultMessage;
+import lab4.messages.TestResultMessage;
 
 import java.util.ArrayList;
 import java.util.HashMap;

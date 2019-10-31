@@ -1,4 +1,4 @@
-package lab4;
+package lab4.messages;
 
 public class TestResultMessage {
 

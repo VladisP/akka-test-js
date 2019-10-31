@@ -2,9 +2,9 @@ package lab4.actors;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
-import lab4.Test;
-import lab4.TestMessage;
-import lab4.TestResultMessage;
+import lab4.messages.Test;
+import lab4.messages.TestMessage;
+import lab4.messages.TestResultMessage;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
