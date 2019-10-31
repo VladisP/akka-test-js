@@ -5,7 +5,7 @@ import akka.japi.pf.ReceiveBuilder;
 
 public class StoreActor extends AbstractActor {
 
-    private 
+    private Map<>
 
     @Override
     public Receive createReceive() {
