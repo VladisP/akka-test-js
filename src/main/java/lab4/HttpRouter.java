@@ -4,6 +4,8 @@ import akka.actor.ActorRef;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
+import lab4.messages.GetResultMessage;
 import lab4.messages.TestMessage;
 
 public class HttpRouter extends AllDirectives {
@@ -26,6 +28,7 @@ public class HttpRouter extends AllDirectives {
                 path("result", () ->
                         get(() ->
                                 parameter("packageId", packageId -> {
+                                    Patterns.ask(rootActor, new GetResultMessage(packageId), 5000);
                                     return complete("coming soon...");
                                 })
                         )
