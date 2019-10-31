@@ -59,8 +59,8 @@ public class Launcher extends AllDirectives {
                         )
                 ),
                 path("result", () ->
-                        get(
-
+                        get(() ->
+                            parameter("")
                         )
                 )
         );
