@@ -23,7 +23,12 @@ public class StoreActor extends AbstractActor {
                 })
                 .match(GetResultMessage.class, msg -> {
                     List<TestResultMessage> testResultMessages = store.get(msg.getPackageId());
-                    Collections.sort(testResultMessages);
+                    testResultMessages.sort(new Comparator<TestResultMessage>() {
+                        @Override
+                        public int compare(TestResultMessage o1, TestResultMessage o2) {
+                            return 0;
+                        }
+                    });
                     ResponseMessage response = new ResponseMessage(msg.getPackageId(), true, testResultMessages.size());
 
                     for (int i = 0; i < testResultMessages.size(); i++) {
