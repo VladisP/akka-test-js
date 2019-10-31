@@ -3,9 +3,11 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
+import java.util.Map;
+
 public class StoreActor extends AbstractActor {
 
-    private Map<>
+    private Map<String, TestResultMessage> 
 
     @Override
     public Receive createReceive() {
