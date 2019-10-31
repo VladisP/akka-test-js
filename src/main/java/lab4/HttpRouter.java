@@ -9,6 +9,9 @@ public class HttpRouter extends AllDirectives {
 
     private static final String TEST_STARTED_MESSAGE = "Test started!";
 
+    public HttpRouter() {
+    }
+
     public Route createRoute(ActorRef rootActor) {
         return route(
                 path("test", () ->
