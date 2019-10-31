@@ -30,6 +30,7 @@ public class RootActor extends AbstractActor {
                                         new Test[]{test}),
                                 self()
                         );
+                        System.out.println("");
                     }
                 })
                 .build();
