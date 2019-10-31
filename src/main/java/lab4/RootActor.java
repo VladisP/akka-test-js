@@ -7,7 +7,7 @@ import akka.actor.Props;
 public class RootActor extends AbstractActor {
 
     private ActorRef storeActor = getContext().actorOf(Props.create(StoreActor.class));
-    private
+    private ActorRef 
 
     @Override
     public Receive createReceive() {
