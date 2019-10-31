@@ -34,7 +34,6 @@ public class ResponseMessage {
         this.packageId = packageId;
     }
 
-
     public boolean isSuccessful() {
         return isSuccessful;
     }
