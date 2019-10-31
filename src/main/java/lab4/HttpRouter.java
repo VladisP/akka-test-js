@@ -7,7 +7,9 @@ import akka.http.javadsl.server.Route;
 
 public class HttpRouter extends AllDirectives {
 
-    private Route createRoute(ActorRef rootActor) {
+    private static final String TEST_STARTED_MESSAGE = "Test started!";
+
+    public Route createRoute(ActorRef rootActor) {
         return route(
                 path("test", () ->
                         post(() ->
