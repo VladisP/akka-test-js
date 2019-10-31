@@ -19,7 +19,7 @@ public class TestPerformerActor extends AbstractActor {
                     Object[] params = msg.getTests()[0].getParams();
                     String result = invocable.invokeFunction(msg.getFunctionName(), params).toString();
 
-                    
+
                 })
                 .build();
     }
