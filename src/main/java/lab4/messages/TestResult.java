@@ -1,8 +1,10 @@
 package lab4.messages;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonAutoDetect
+@JsonPropertyOrder(alphabetic = false)
 public class TestResult {
 
     private String testName;
