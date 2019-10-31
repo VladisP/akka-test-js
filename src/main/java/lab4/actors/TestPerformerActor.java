@@ -32,6 +32,8 @@ public class TestPerformerActor extends AbstractActor {
                                     ),
                                     self()
                             );
+
+                    System.out.println(test.getTestName() + " завершен!");
                 })
                 .build();
     }
