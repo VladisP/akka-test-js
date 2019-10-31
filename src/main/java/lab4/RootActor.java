@@ -2,10 +2,11 @@ package lab4;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.actor.Props;
 
 public class RootActor extends AbstractActor {
 
-    private ActorRef storeActor = getContext().actorOf()
+    private ActorRef storeActor = getContext().actorOf(Props.create())
 
     @Override
     public Receive createReceive() {
