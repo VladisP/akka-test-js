@@ -24,11 +24,9 @@ public class HttpRouter extends AllDirectives {
                 ),
                 path("result", () ->
                         get(() ->
-                                parameter("key", packageId ->
-                                        parameter("value", value -> {
-                                            return complete("coming soon...");
-                                        })
-                                )
+                                parameter("packageId", packageId -> {
+                                    return complete("coming soon...");
+                                })
                         )
                 )
         );
