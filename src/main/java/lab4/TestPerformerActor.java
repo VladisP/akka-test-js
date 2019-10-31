@@ -16,6 +16,7 @@ public class TestPerformerActor extends AbstractActor {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(msg.getJsScript());
                     Invocable invocable = (Invocable) engine;
+                    int[] 
                     String result invocable.invokeFunction(msg.getFunctionName(), )
 
                     for (Test test : msg.getTests()) {
