@@ -53,7 +53,7 @@ public class Launcher extends AllDirectives {
                     route(
                             post( () ->
                                     entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                        system.actorSelection(system.child())
+                                        system.actorSelection(system.)
                                     })
                             )
                     ))
