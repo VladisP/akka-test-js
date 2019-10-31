@@ -5,7 +5,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 @JsonAutoDetect
 public class TestMessage {
 
-    private int packageId;
+    private String packageId;
     private String jsScript;
     private String functionName;
     private Test[] tests;
@@ -13,18 +13,18 @@ public class TestMessage {
     public TestMessage() {
     }
 
-    public TestMessage(int packageId, String jsScript, String functionName, Test[] tests) {
+    public TestMessage(String packageId, String jsScript, String functionName, Test[] tests) {
         this.packageId = packageId;
         this.jsScript = jsScript;
         this.functionName = functionName;
         this.tests = tests;
     }
 
-    public int getPackageId() {
+    public String getPackageId() {
         return packageId;
     }
 
-    public void setPackageId(int packageId) {
+    public void setPackageId(String packageId) {
         this.packageId = packageId;
     }
 

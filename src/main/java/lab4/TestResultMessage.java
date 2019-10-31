@@ -2,19 +2,19 @@ package lab4;
 
 public class TestResultMessage {
 
-    private int packageId;
+    private String packageId;
     private boolean isSuccessful;
     private String result;
     private Test test;
 
-    public TestResultMessage(int packageId, boolean isSuccessful, String result, Test test) {
+    public TestResultMessage(String packageId, boolean isSuccessful, String result, Test test) {
         this.packageId = packageId;
         this.isSuccessful = isSuccessful;
         this.result = result;
         this.test = test;
     }
 
-    public int getPackageId() {
+    public String getPackageId() {
         return packageId;
     }
 

@@ -3,18 +3,21 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class StoreActor extends AbstractActor {
 
-    private Map<String, TestResultMessage> store = new HashMap<>();
+    private Map<String, List<TestResultMessage>> store = new HashMap<>();
 
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestResultMessage.class, msg -> {
-                    store.put(msg.getPackageId(), msg);
+                    store.computeIfAbsent(msg.getPackageId(), k -> new ArrayList<>());
+                    store.get(msg.getPackageId()).add(msg);
                 })
                 .build();
     }
