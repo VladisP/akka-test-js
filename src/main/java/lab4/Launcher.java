@@ -8,5 +8,6 @@ public class Launcher {
 
     public static void main(String[] args) {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
+        
     }
 }
