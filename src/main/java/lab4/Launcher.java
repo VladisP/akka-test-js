@@ -31,7 +31,7 @@ public class Launcher extends AllDirectives {
 
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        Launcher instance = new Launcher();
+        //Launcher instance = new Launcher();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute(rootActor).flow(system, materializer);
@@ -46,27 +46,5 @@ public class Launcher extends AllDirectives {
         binding
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
-    }
-
-    private Route createRoute(ActorRef rootActor) {
-        return route(
-                path("test", () ->
-                        post(() ->
-                                entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                    //rootActor.tell(msg, ActorRef.noSender());
-                                    return complete(TEST_STARTED_MESSAGE);
-                                })
-                        )
-                ),
-                path("result", () ->
-                        get(() ->
-                                parameter("key", packageId ->
-                                        parameter("value", value -> {
-                                            return complete("coming soon...");
-                                        })
-                                )
-                        )
-                )
-        );
     }
 }
