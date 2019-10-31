@@ -3,9 +3,9 @@ package lab4.actors;
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 import lab4.Launcher;
-import lab4.messages.Test;
+import lab4.entities.Test;
+import lab4.entities.TestResult;
 import lab4.messages.TestMessage;
-import lab4.messages.TestResultMessage;
 
 import javax.script.Invocable;
 import javax.script.ScriptEngine;
@@ -29,11 +29,13 @@ public class TestPerformerActor extends AbstractActor {
                     System.out.println(test.getTestName() + " завершен!");
 
                     getContext().actorSelection(PATH_TO_STORE_ACTOR)
-                            .tell(new TestResultMessage(
+                            .tell(new TestResult(
                                             msg.getPackageId(),
+                                            test.getTestName(),
                                             result.equals(test.getExpectedResult()),
                                             result,
-                                            test
+                                            test.getExpectedResult(),
+                                            test.getParams()
                                     ),
                                     self()
                             );

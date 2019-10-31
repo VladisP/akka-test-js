@@ -1,4 +1,4 @@
-package lab4.messages;
+package lab4.entities;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -21,12 +21,28 @@ public class TestResult {
     public TestResult() {
     }
 
-    public TestResult(String testName, boolean isSuccessful, String result, String expectedResult, Object[] params) {
+    public TestResult(
+            String packageId,
+            String testName,
+            boolean isSuccessful,
+            String result,
+            String expectedResult,
+            Object[] params
+    ) {
+        this.packageId = packageId;
         this.testName = testName;
         this.isSuccessful = isSuccessful;
         this.result = result;
         this.expectedResult = expectedResult;
         this.params = params;
+    }
+
+    public String getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(String packageId) {
+        this.packageId = packageId;
     }
 
     public String getTestName() {

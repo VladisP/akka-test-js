@@ -6,8 +6,8 @@ import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 import lab4.Launcher;
-import lab4.messages.GetResultMessage;
-import lab4.messages.Test;
+import lab4.messages.GetResultsMessage;
+import lab4.entities.Test;
 import lab4.messages.TestMessage;
 
 public class RootActor extends AbstractActor {
@@ -35,7 +35,7 @@ public class RootActor extends AbstractActor {
                         System.out.println(test.getTestName() + " запущен!");
                     }
                 })
-                .match(GetResultMessage.class, msg -> {
+                .match(GetResultsMessage.class, msg -> {
                     storeActor.tell(msg, sender());
                     System.out.println("Запрошены результаты тестов для packageId=" + msg.getPackageId());
                 })

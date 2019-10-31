@@ -5,7 +5,7 @@ import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.AllDirectives;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
-import lab4.messages.GetResultMessage;
+import lab4.messages.GetResultsMessage;
 import lab4.messages.TestMessage;
 import scala.concurrent.Future;
 
@@ -33,7 +33,7 @@ public class HttpRouter extends AllDirectives {
                 path(RESULT_PATH, () ->
                         get(() ->
                                 parameter(PARAMETER_PACKAGE_ID, packageId -> {
-                                    Future<Object> result = Patterns.ask(rootActor, new GetResultMessage(packageId), TIMEOUT);
+                                    Future<Object> result = Patterns.ask(rootActor, new GetResultsMessage(packageId), TIMEOUT);
                                     return completeOKWithFuture(result, Jackson.marshaller());
                                 })
                         )

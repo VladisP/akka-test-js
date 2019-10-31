@@ -1,6 +1,7 @@
 package lab4.messages;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import lab4.entities.Test;
 
 @JsonAutoDetect
 public class TestMessage {

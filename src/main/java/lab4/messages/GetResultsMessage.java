@@ -1,10 +1,10 @@
 package lab4.messages;
 
-public class GetResultMessage {
+public class GetResultsMessage {
 
     private String packageId;
 
-    public GetResultMessage(String packageId) {
+    public GetResultsMessage(String packageId) {
         this.packageId = packageId;
     }
 
