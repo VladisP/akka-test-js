@@ -23,7 +23,7 @@ public class Launcher {
 
     public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
-        ActorRef rootActor = system.actorOf(Props.create(RootActor.class));
+        ActorRef rootActor = system.actorOf(Props.create(RootActor.class), "rootActor");
 
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
