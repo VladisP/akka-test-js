@@ -14,7 +14,9 @@
                 <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
                     <archive>
-                        
+                        <manifest>
+                            
+                        </manifest>
                     </archive>
                 </configuration>
             </plugin>
