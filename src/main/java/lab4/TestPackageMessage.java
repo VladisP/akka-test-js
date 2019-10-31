@@ -3,14 +3,14 @@ package lab4;
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
 @JsonAutoDetect
-public class TestMessage {
+public class TestPackageMessage {
 
     private int packageId;
     private String jsScript;
     private String functionName;
     private Test[] tests;
 
-    public TestMessage() {
+    public TestPackageMessage() {
     }
 
     public int getPackageId() {

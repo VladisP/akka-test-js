@@ -19,7 +19,7 @@ public class RootActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(TestMessage.class, msg -> {
+                .match(TestPackageMessage.class, msg -> {
                     for (Test test : msg.getTests()) {
                         testRouter.tell();
                     }
