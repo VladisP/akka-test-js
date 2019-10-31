@@ -38,6 +38,7 @@ public class Launcher extends AllDirectives {
                 , materializer
         );
 
+        System.out.println("");
         System.in.read();
         binding
                 .thenCompose(ServerBinding::unbind)
