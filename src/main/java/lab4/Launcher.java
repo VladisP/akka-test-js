@@ -12,6 +12,8 @@ import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
+import java.util.concurrent.CompletionStage;
+
 public class Launcher extends AllDirectives {
 
     private static final String ACTOR_SYSTEM_NAME = "test-js";
@@ -25,7 +27,8 @@ public class Launcher extends AllDirectives {
         Launcher instance = new Launcher();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                instance.createRoute();
+                instance.createRoute().flow(system, materializer);
+        final CompletionStage
     }
 
     private Route createRoute() {
