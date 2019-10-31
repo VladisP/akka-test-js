@@ -52,7 +52,9 @@ public class Launcher extends AllDirectives {
             path("test", () ->
                     route(
                             post( () ->
-                                    entity(Jackson.unmarshaller())
+                                    entity(Jackson.unmarshaller(TestMessage.class), msg -> {
+                                        
+                                    })
                             )
                     ))
         );
