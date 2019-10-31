@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonAutoDetect
-@JsonPropertyOrder(alphabetic = false)
+@JsonPropertyOrder({})
 public class TestResult {
 
     private String testName;
