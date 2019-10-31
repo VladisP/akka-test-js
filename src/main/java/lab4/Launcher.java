@@ -22,6 +22,7 @@ public class Launcher extends AllDirectives {
     private static final String ACTOR_SYSTEM_NAME = "test-js";
     private static final String HOST_NAME = "localhost";
     private static final String START_MESSAGE = "Server online at http://localhost:8080/\nPress RETURN to stop...";
+    private static final String TEST_START
     private static final int PORT = 8080;
 
     public static void main(String[] args) throws Exception {
@@ -53,7 +54,8 @@ public class Launcher extends AllDirectives {
                     route(
                             post( () ->
                                     entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                        rootActor.tell();
+                                        rootActor.tell(msg, ActorRef.noSender());
+                                        return complete();
                                     })
                             )
                     ))
