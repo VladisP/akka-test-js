@@ -4,9 +4,10 @@ import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.http.javadsl.Http;
+import akka.http.javadsl.server.AllDirectives;
 import akka.stream.ActorMaterializer;
 
-public class Launcher {
+public class Launcher extends AllDirectives {
 
     private static final String ACTOR_SYSTEM_NAME = "test-js";
 
