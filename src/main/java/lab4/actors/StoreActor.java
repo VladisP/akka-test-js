@@ -23,7 +23,8 @@ public class StoreActor extends AbstractActor {
                     System.out.println(msg.getTest().getTestName() + " записан в хранилище!");
                 })
                 .match(GetResultMessage.class, msg -> {
-                    
+                    List<TestResultMessage> testResultMessages = store.get(msg.getPackageId());
+
                 })
                 .build();
     }
