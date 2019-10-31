@@ -51,17 +51,17 @@ public class Launcher extends AllDirectives {
     private Route createRoute(ActorRef rootActor) {
         return route(
                 path("test", () ->
-                        route(
-                                post(() ->
-                                        entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                            rootActor.tell(msg, ActorRef.noSender());
-                                            return complete(TEST_STARTED_MESSAGE);
-                                        })
-                                )
+                        post(() ->
+                                entity(Jackson.unmarshaller(TestMessage.class), msg -> {
+                                    rootActor.tell(msg, ActorRef.noSender());
+                                    return complete(TEST_STARTED_MESSAGE);
+                                })
                         )
                 ),
                 path("result", () ->
-                    
+                        get(
+
+                        )
                 )
         );
     }
