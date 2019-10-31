@@ -8,6 +8,8 @@ import akka.pattern.Patterns;
 import lab4.messages.GetResultMessage;
 import lab4.messages.TestMessage;
 
+import java.util.concurrent.Future;
+
 public class HttpRouter extends AllDirectives {
 
     private static final String TEST_STARTED_MESSAGE = "Test started!";
@@ -28,7 +30,7 @@ public class HttpRouter extends AllDirectives {
                 path("result", () ->
                         get(() ->
                                 parameter("packageId", packageId -> {
-                                    Patterns.ask(rootActor, new GetResultMessage(packageId), 5000);
+                                    Future<Object> result = Patterns.ask(rootActor, new GetResultMessage(packageId), 5000);
                                     return complete("coming soon...");
                                 })
                         )
