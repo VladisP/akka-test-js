@@ -1,6 +1,7 @@
+lab4/Launcher.class
 lab4/Test.class
 lab4/TestPerformerActor.class
-lab4/Launcher.class
 lab4/RootActor.class
 lab4/TestMessage.class
 lab4/StoreActor.class
+lab4/HttpRouter.class
