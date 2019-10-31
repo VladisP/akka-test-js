@@ -12,7 +12,7 @@ public class RootActor extends AbstractActor {
     private ActorRef storeActor = getContext().actorOf(Props.create(StoreActor.class));
     private ActorRef testRouter = getContext().actorOf(
             new RoundRobinPool(POOL_SIZE)
-            .props(Props.create(TestPerformerActor.class))
+                    .props(Props.create(TestPerformerActor.class))
     );
 
     @Override
