@@ -16,18 +16,10 @@ public class TestPerformerActor extends AbstractActor {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName("nashorn");
                     engine.eval(msg.getJsScript());
                     Invocable invocable = (Invocable) engine;
-                    int[] params = msg.getTests()[0].getParams();
-                    String result = invocable.invokeFunction(msg.getFunctionName(), params)
+                    Object[] params = msg.getTests()[0].getParams();
+                    String result = invocable.invokeFunction(msg.getFunctionName(), params).toString();
 
-                    for (Test test : msg.getTests()) {
-                        testRouter.tell(new TestMessage(
-                                        msg.getPackageId(),
-                                        msg.getJsScript(),
-                                        msg.getFunctionName(),
-                                        new Test[]{test}),
-                                self()
-                        );
-                    }
+                    
                 })
                 .build();
     }

@@ -7,7 +7,7 @@ public class Test {
 
     private String testName;
     private String expectedResult;
-    private int[] params;
+    private Object[] params;
 
     public Test() {
     }
@@ -28,11 +28,11 @@ public class Test {
         this.expectedResult = expectedResult;
     }
 
-    public int[] getParams() {
+    public Object[] getParams() {
         return params;
     }
 
-    public void setParams(int[] params) {
+    public void setParams(Object[] params) {
         this.params = params;
     }
 }
