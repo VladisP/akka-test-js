@@ -10,7 +10,7 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.</groupId>
+                <groupId>org.apache</groupId>
             </plugin>
         </plugins>
     </build>
