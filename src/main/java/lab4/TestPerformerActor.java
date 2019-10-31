@@ -11,7 +11,7 @@ public class TestPerformerActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestMessage.class, msg -> {
-                    ScriptEngine 
+                    ScriptEngine engine = new 
 
                     for (Test test : msg.getTests()) {
                         testRouter.tell(new TestMessage(
