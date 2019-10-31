@@ -19,6 +19,7 @@ public class StoreActor extends AbstractActor {
                 .match(TestResultMessage.class, msg -> {
                     store.computeIfAbsent(msg.getPackageId(), k -> new ArrayList<>());
                     store.get(msg.getPackageId()).add(msg);
+                    System.out.println(msg.getTest().getTestName() + " записан в хранилище!");
                 })
                 .build();
     }
