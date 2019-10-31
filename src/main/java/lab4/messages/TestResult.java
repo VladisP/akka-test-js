@@ -1,14 +1,15 @@
 package lab4.messages;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonAutoDetect
-@JsonPropertyOrder({"testName", "isSuccessful", "result", "expectedResult", "params"})
+@JsonPropertyOrder({"testName", "successful", "result", "expectedResult", "params"})
 public class TestResult {
 
     private String testName;
-    
+    @JsonProperty("successful")
     private boolean isSuccessful;
     private String result;
     private String expectedResult;
