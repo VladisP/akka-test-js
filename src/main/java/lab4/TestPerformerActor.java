@@ -4,6 +4,7 @@ import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
 
 import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
 
 public class TestPerformerActor extends AbstractActor {
 
@@ -11,7 +12,7 @@ public class TestPerformerActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestMessage.class, msg -> {
-                    ScriptEngine engine = new 
+                    ScriptEngine engine = new ScriptEngineManager()
 
                     for (Test test : msg.getTests()) {
                         testRouter.tell(new TestMessage(
