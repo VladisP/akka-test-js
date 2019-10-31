@@ -47,13 +47,13 @@ public class Launcher extends AllDirectives {
                 .thenAccept(unbound -> system.terminate());
     }
 
-    private Route createRoute() {
+    private Route createRoute(ActorSystem system) {
         return route(
             path("test", () ->
                     route(
                             post( () ->
                                     entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                        
+                                        system.
                                     })
                             )
                     ))
