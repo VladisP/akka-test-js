@@ -15,7 +15,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            
+                            <add
                         </manifest>
                     </archive>
                 </configuration>
