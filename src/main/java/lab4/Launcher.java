@@ -31,10 +31,11 @@ public class Launcher {
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 httpRouter.createRoute(rootActor).flow(system, materializer);
+
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
-                routeFlow
-                , ConnectHttp.toHost(HOST_NAME, PORT)
-                , materializer
+                routeFlow,
+                ConnectHttp.toHost(HOST_NAME, PORT),
+                materializer
         );
 
         System.out.println(START_MESSAGE);
