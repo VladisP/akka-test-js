@@ -30,7 +30,7 @@ public class StoreActor extends AbstractActor {
 
                         ResponseMessage response = new ResponseMessage(
                                 msg.getPackageId(),
-                                (TestResult[]) testResults.toArray()
+                                testResults.toArray(new TestResult[0])
                         );
 
                         sender().tell(response, self());
