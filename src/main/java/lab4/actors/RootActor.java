@@ -5,6 +5,7 @@ import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
+import lab4.messages.GetResultMessage;
 import lab4.messages.Test;
 import lab4.messages.TestMessage;
 
@@ -32,6 +33,10 @@ public class RootActor extends AbstractActor {
                         );
                         System.out.println(test.getTestName() + " запущен!");
                     }
+                })
+                .match(GetResultMessage.class, msg -> {
+                    storeActor.tell(msg, self());
+                    System.out.println();
                 })
                 .build();
     }

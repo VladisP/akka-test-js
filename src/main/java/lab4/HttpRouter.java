@@ -30,7 +30,7 @@ public class HttpRouter extends AllDirectives {
                         get(() ->
                                 parameter("packageId", packageId -> {
                                     Future<Object> result = Patterns.ask(rootActor, new GetResultMessage(packageId), 5000);
-                                    return completeOKWithFuture(result, );
+                                    return completeOKWithFuture(result, Jackson.marshaller());
                                 })
                         )
                 )

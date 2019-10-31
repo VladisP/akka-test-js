@@ -21,7 +21,7 @@ public class StoreActor extends AbstractActor {
                     store.get(msg.getPackageId()).add(msg);
                     System.out.println(msg.getTest().getTestName() + " записан в хранилище!");
                 })
-                .match(Class<>)
+                .match()
                 .build();
     }
 }
