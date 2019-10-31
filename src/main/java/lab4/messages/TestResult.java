@@ -14,6 +14,14 @@ public class TestResult {
     public TestResult() {
     }
 
+    public TestResult(String testName, boolean isSuccessful, String result, String expectedResult, Object[] params) {
+        this.testName = testName;
+        this.isSuccessful = isSuccessful;
+        this.result = result;
+        this.expectedResult = expectedResult;
+        this.params = params;
+    }
+
     public String getTestName() {
         return testName;
     }

@@ -6,10 +6,16 @@ import com.fasterxml.jackson.annotation.JsonAutoDetect;
 public class ResponseMessage {
 
     private String packageId;
-    private String status;
+    private boolean isSuccessful;
     private TestResult[] testResults;
 
     public ResponseMessage() {
+    }
+
+    public ResponseMessage(String packageId, boolean isSuccessful, int testResultsCount) {
+        this.packageId = packageId;
+        this.isSuccessful = isSuccessful;
+        this.testResults = new TestResult[testResultsCount];
     }
 
     public String getPackageId() {
@@ -20,12 +26,13 @@ public class ResponseMessage {
         this.packageId = packageId;
     }
 
-    public String getStatus() {
-        return status;
+
+    public boolean isSuccessful() {
+        return isSuccessful;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setSuccessful(boolean successful) {
+        isSuccessful = successful;
     }
 
     public TestResult[] getTestResults() {
