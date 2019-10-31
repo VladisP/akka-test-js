@@ -8,6 +8,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 public class TestResult {
 
     private String testName;
+    
     private boolean isSuccessful;
     private String result;
     private String expectedResult;
