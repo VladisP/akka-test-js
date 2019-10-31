@@ -3,6 +3,7 @@ package lab4;
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
 import akka.actor.Props;
+import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
 public class RootActor extends AbstractActor {
@@ -17,6 +18,6 @@ public class RootActor extends AbstractActor {
 
     @Override
     public Receive createReceive() {
-        return null;
+        return ReceiveBuilder.create()
     }
 }
