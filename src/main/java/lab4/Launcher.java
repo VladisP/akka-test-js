@@ -33,7 +33,7 @@ public class Launcher extends AllDirectives {
         Launcher instance = new Launcher();
 
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                instance.createRoute().flow(system, materializer);
+                instance.createRoute(rootActor).flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow
                 , ConnectHttp.toHost(HOST_NAME, PORT)
@@ -47,13 +47,13 @@ public class Launcher extends AllDirectives {
                 .thenAccept(unbound -> system.terminate());
     }
 
-    private Route createRoute(ActorSystem system) {
+    private Route createRoute(ActorRef rootActor) {
         return route(
             path("test", () ->
                     route(
                             post( () ->
                                     entity(Jackson.unmarshaller(TestMessage.class), msg -> {
-                                        system.actorSelection(system.)
+                                        rootActor.tell();
                                     })
                             )
                     ))
