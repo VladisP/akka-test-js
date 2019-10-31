@@ -5,17 +5,18 @@ import akka.actor.ActorRef;
 import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
+import lab4.Launcher;
 import lab4.messages.GetResultMessage;
 import lab4.messages.Test;
 import lab4.messages.TestMessage;
 
 public class RootActor extends AbstractActor {
 
-    private static final int POOL_SIZE = 5;
+    private static final int INITIAL_POOL_SIZE = 3;
 
-    private ActorRef storeActor = getContext().actorOf(Props.create(StoreActor.class), "storeActor");
+    private ActorRef storeActor = getContext().actorOf(Props.create(StoreActor.class), Launcher.STORE_ACTOR_NAME);
     private ActorRef testRouter = getContext().actorOf(
-            new RoundRobinPool(POOL_SIZE)
+            new RoundRobinPool(INITIAL_POOL_SIZE)
                     .props(Props.create(TestPerformerActor.class))
     );
 

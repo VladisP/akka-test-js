@@ -17,6 +17,9 @@ import java.util.concurrent.CompletionStage;
 
 public class Launcher {
 
+    public static final String ROOT_ACTOR_NAME = "rootActor";
+    public static final String STORE_ACTOR_NAME = "storeActor";
+
     private static final String ACTOR_SYSTEM_NAME = "test-js";
     private static final String HOST_NAME = "localhost";
     private static final String START_MESSAGE = "Server online at http://localhost:8080/\nPress RETURN to stop...";
@@ -24,7 +27,7 @@ public class Launcher {
 
     public static void main(String[] args) throws Exception {
         ActorSystem system = ActorSystem.create(ACTOR_SYSTEM_NAME);
-        ActorRef rootActor = system.actorOf(Props.create(RootActor.class), "rootActor");
+        ActorRef rootActor = system.actorOf(Props.create(RootActor.class), ROOT_ACTOR_NAME);
 
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
