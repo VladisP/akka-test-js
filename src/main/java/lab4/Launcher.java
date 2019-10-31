@@ -47,6 +47,13 @@ public class Launcher extends AllDirectives {
     }
 
     private Route createRoute() {
-        return null;
+        return route(
+            path("test", () ->
+                    route(
+                            post( () ->
+                                    
+                            )
+                    ))
+        );
     }
 }
