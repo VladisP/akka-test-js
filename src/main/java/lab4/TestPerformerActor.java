@@ -12,7 +12,7 @@ public class TestPerformerActor extends AbstractActor {
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestMessage.class, msg -> {
-                    ScriptEngine engine = new ScriptEngineManager()
+                    ScriptEngine engine = new ScriptEngineManager().get
 
                     for (Test test : msg.getTests()) {
                         testRouter.tell(new TestMessage(
