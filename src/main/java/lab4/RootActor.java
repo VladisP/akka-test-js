@@ -21,7 +21,13 @@ public class RootActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(TestMessage.class, msg -> {
                     for (Test test : msg.getTests()) {
-                        testRouter.tell();
+                        testRouter.tell(new TestMessage(
+                                        msg.getPackageId(),
+                                        msg.getJsScript(),
+                                        msg.getFunctionName(),
+                                        new Test[]{test}),
+                                self()
+                        );
                     }
                 })
     }

@@ -13,6 +13,13 @@ public class TestMessage {
     public TestMessage() {
     }
 
+    public TestMessage(int packageId, String jsScript, String functionName, Test[] tests) {
+        this.packageId = packageId;
+        this.jsScript = jsScript;
+        this.functionName = functionName;
+        this.tests = tests;
+    }
+
     public int getPackageId() {
         return packageId;
     }
