@@ -15,23 +15,25 @@ public class TestPerformerActor extends AbstractActor {
 
     private static final String ENGINE_NAME = "nashorn";
     private static final String PATH_TO_STORE_ACTOR = "/user/" + Launcher.ROOT_ACTOR_NAME + "/" + Launcher.STORE_ACTOR_NAME;
-    private static final String RUNTIME_ERROR
+    private static final String RUNTIME_ERROR = "RUNTIME_ERROR";
 
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestMessage.class, msg -> {
                     ScriptEngine engine = new ScriptEngineManager().getEngineByName(ENGINE_NAME);
-                    String result = "";
+                    Test test = msg.getTests()[0];
+                    String result;
+
                     try {
                         engine.eval(msg.getJsScript());
                         Invocable invocable = (Invocable) engine;
-                        Test test = msg.getTests()[0];
                         Object[] params = test.getParams();
                         result = invocable.invokeFunction(msg.getFunctionName(), params).toString();
                     } catch (Exception exception) {
-                        result = ;
+                        result = RUNTIME_ERROR;
                     }
+
                     System.out.println(test.getTestName() + " завершен!");
 
                     getContext().actorSelection(PATH_TO_STORE_ACTOR)
